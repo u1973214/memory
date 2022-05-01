@@ -95,6 +95,17 @@ var gameObj = function (){
 							else{
 								Vue.set(this.current_card, i, {done: false, texture: back});
 								Vue.set(this.current_card, i_front, {done: false, texture: back});
+								/*
+								for (i=0; i<=4; i++) {
+									Vue.set(this.current_card, i, {done: false, texture: back});
+								}
+								setTimeout(function(){
+									for (i=0; i<=4; i++) {
+									Vue.set(this.current_card, i_front, {done: false, texture: back});
+									}
+								},5000);
+								*/
+
 								this.bad_clicks++;
 								break;
 							}
@@ -115,8 +126,6 @@ var gameObj = function (){
 	});
 	return {};
 }();
-
-
 
 
 
