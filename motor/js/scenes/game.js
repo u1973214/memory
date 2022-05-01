@@ -18,6 +18,29 @@ class GameScene extends Phaser.Scene {
 	}
 	
     create (){	
+<<<<<<< HEAD
+=======
+		
+		let cartes = ['cb', 'co', 'sb', 'so', 'tb', 'to'];
+		let arraycards = ['co', 'sb', 'co', 'sb'];
+		var i, j;
+		for (i=0; i<=4; i++) {
+			j = Math.floor(Math.random() * i);
+			arraycards[i] = cartes[j];
+		}
+		
+		
+		this.cameras.main.setBackgroundColor(0xBFFCFF);
+
+		
+		var pos_horitzonal = 250;
+		var pos_vertical = 300;
+		for (i=0; i<=4; i++) {
+			this.add.image(pos_horitzontal, pos_vertical, 'back');
+			pos_horitzontal = pos_horitzontal + 100;
+		}
+		
+>>>>>>> 4c7b48525bf76c996156b823acb51919d46d1c81
 		
 		let cartes = ['cb', 'co', 'sb', 'so', 'tb', 'to'];
 		let arraycards = ['co', 'sb', 'co', 'sb'];
@@ -41,15 +64,23 @@ class GameScene extends Phaser.Scene {
 		
 		this.cards = this.physics.add.staticGroup();
 
+<<<<<<< HEAD
 		
+=======
+		
+>>>>>>> 4c7b48525bf76c996156b823acb51919d46d1c81
 		pos_horitzonal = 250;
 		pos_vertical = 300;
 		for (i=0; i<=4; i++) {
 			this.cards.create(pos_horitzontal, pos_vertical, 'back');
 			pos_horitzontal = pos_horitzontal + 100;
 		}
+<<<<<<< HEAD
 		
 		
+=======
+		
+>>>>>>> 4c7b48525bf76c996156b823acb51919d46d1c81
 		
 		
 		let i = 0;
