@@ -5,6 +5,8 @@ class GameScene extends Phaser.Scene {
 		this.firstClick = null;
 		this.score = 100;
 		this.correct = 0;
+		this.numCartes = options.getNumOfCards;
+		this.dificultat = options.getDificulty;
     }
 
     preload (){	
@@ -18,70 +20,32 @@ class GameScene extends Phaser.Scene {
 	}
 	
     create (){	
-<<<<<<< HEAD
-=======
-		
-		let cartes = ['cb', 'co', 'sb', 'so', 'tb', 'to'];
-		let arraycards = ['co', 'sb', 'co', 'sb'];
-		var i, j;
-		for (i=0; i<=4; i++) {
-			j = Math.floor(Math.random() * i);
-			arraycards[i] = cartes[j];
+		var llistatCartes = [];
+		while (llistatCartes.lenght < this.numCartes * 2) {
+			var rand = Math.floor(Math.random() * this.numCartes * 2);
+			if (llistatCartes.indexOf(rand) === -1) {
+				llistatCartes.push(rand);
+			}
 		}
-		
-		
+
+		this.limitCartes = this.numCartes;
+		var arraycards = ['cb', 'co', 'sb', 'so', 'tb', 'to', 'cb', 'co', 'sb', 'so', 'tb', 'to'];
+		console.log(llistatCartes);
 		this.cameras.main.setBackgroundColor(0xBFFCFF);
 
-		
-		var pos_horitzonal = 250;
-		var pos_vertical = 300;
-		for (i=0; i<=4; i++) {
-			this.add.image(pos_horitzontal, pos_vertical, 'back');
-			pos_horitzontal = pos_horitzontal + 100;
+		var posX = 250
+		for (var i=0; i<=this.numCartes*2; i++){
+			this.add.image(posX, 300, arraycards[llistatCartes[i]]);
+			posX += 100;
 		}
-		
->>>>>>> 4c7b48525bf76c996156b823acb51919d46d1c81
-		
-		let cartes = ['cb', 'co', 'sb', 'so', 'tb', 'to'];
-		let arraycards = ['co', 'sb', 'co', 'sb'];
-		var i, j;
-		for (i=0; i<=4; i++) {
-			j = Math.floor(Math.random() * i);
-			arraycards[i] = cartes[j];
-		}
-		
-		
-		this.cameras.main.setBackgroundColor(0xBFFCFF);
-
-		
-		var pos_horitzonal = 250;
-		var pos_vertical = 300;
-		for (i=0; i<=4; i++) {
-			this.add.image(pos_horitzontal, pos_vertical, 'back');
-			pos_horitzontal = pos_horitzontal + 100;
-		}
-		
 		
 		this.cards = this.physics.add.staticGroup();
 
-<<<<<<< HEAD
-		
-=======
-		
->>>>>>> 4c7b48525bf76c996156b823acb51919d46d1c81
-		pos_horitzonal = 250;
-		pos_vertical = 300;
-		for (i=0; i<=4; i++) {
-			this.cards.create(pos_horitzontal, pos_vertical, 'back');
-			pos_horitzontal = pos_horitzontal + 100;
+		var posX = 250
+		for (var i=0; i<=this.numCartes*2; i++){
+			this.add.image(posX, 300, 'back');
+			posX += 100;
 		}
-<<<<<<< HEAD
-		
-		
-=======
-		
->>>>>>> 4c7b48525bf76c996156b823acb51919d46d1c81
-		
 		
 		let i = 0;
 		this.cards.children.iterate((card)=>{
@@ -92,10 +56,17 @@ class GameScene extends Phaser.Scene {
 				card.disableBody(true,true);
 				if (this.firstClick){
 					if (this.firstClick.card_id !== card.card_id){
-						this.score -= 20;
+						if (this.dificultat == "easy") {
+							this.score -= 10
+						}
+						else if (this.dificultat == "normal") {
+							this.score -= 20
+						}
+						else{
+							this.score -= 30
+						}
 						this.firstClick.enableBody(false, 0, 0, true, true);
 						card.enableBody(false, 0, 0, true, true);
-						
 						if (this.score <= 0){
 							alert("Game Over");
 							loadpage("../");
