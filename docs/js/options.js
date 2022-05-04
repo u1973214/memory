@@ -56,6 +56,18 @@ var options = function(){
 	}; 
 }();
 
+var nCartes = {
+	get numCartes() {
+		return options.getNumOfCards;
+	}
+}
+
+var dificultat = {
+	get dificultat() {
+		return options.getDificulty;
+	}
+}
+
 
 
 

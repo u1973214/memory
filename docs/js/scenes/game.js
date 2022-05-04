@@ -5,8 +5,8 @@ class GameScene extends Phaser.Scene {
 		this.firstClick = null;
 		this.score = 100;
 		this.correct = 0;
-		this.numCartes = options.getNumOfCards;
-		this.dificultat = options.getDificulty;
+		this.numCartes = nCartes.numCartes();
+		this.dificultat = dificultat.dificultat()
     }
 
     preload (){	
@@ -42,7 +42,7 @@ class GameScene extends Phaser.Scene {
 		this.cards = this.physics.add.staticGroup();
 
 		var posX = 250
-		for (var i=0; i<=this.numCartes*2; i++){
+		for (var j=0; i<=this.numCartes*2; i++){
 			this.add.image(posX, 300, 'back');
 			posX += 100;
 		}
