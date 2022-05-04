@@ -42,7 +42,7 @@ class GameScene extends Phaser.Scene {
 		this.cards = this.physics.add.staticGroup();
 
 		var posX = 250
-		for (var j=0; i<=this.numCartes*2; i++){
+		for (var j=0; j<=this.numCartes*2; j++){
 			this.add.image(posX, 300, 'back');
 			posX += 100;
 		}
@@ -68,7 +68,7 @@ class GameScene extends Phaser.Scene {
 
 						//Mostrem totes les cartes durant 1 segon
 						setTimeout(function(){
-							for (var i=0; i<=this.numCartes*2; i++){
+							for (var z=0; z<=this.numCartes*2; z++){
 								this.firstClick.enableBody(false, 0, 0, true, true);
 								card.enableBody(false, 0, 0, true, true);
 							}
