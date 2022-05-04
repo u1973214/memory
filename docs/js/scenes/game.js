@@ -34,8 +34,8 @@ class GameScene extends Phaser.Scene {
 		this.cameras.main.setBackgroundColor(0xBFFCFF);
 
 		var posX = 250
-		for (var i=0; i<=this.numCartes*2; i++){
-			this.add.image(posX, 300, arraycards[llistatCartes[i]]);
+		for (var l=0; l<=this.numCartes*2; l++){
+			this.add.image(posX, 300, arraycards[llistatCartes[l]]);
 			posX += 100;
 		}
 		
