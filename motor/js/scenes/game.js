@@ -65,8 +65,15 @@ class GameScene extends Phaser.Scene {
 						else{
 							this.score -= 30
 						}
-						this.firstClick.enableBody(false, 0, 0, true, true);
-						card.enableBody(false, 0, 0, true, true);
+
+						//Mostrem totes les cartes durant 1 segon
+						setTimeout(function(){
+							for (var i=0; i<=this.numCartes*2; i++){
+								this.firstClick.enableBody(false, 0, 0, true, true);
+								card.enableBody(false, 0, 0, true, true);
+							}
+						},1000);						
+						
 						if (this.score <= 0){
 							alert("Game Over");
 							loadpage("../");
@@ -74,7 +81,7 @@ class GameScene extends Phaser.Scene {
 					}
 					else{
 						this.correct++;
-						if (this.correct >= 2){
+						if (this.correct >= this.numCartes){
 							alert("You Win with " + this.score + " points.");
 							loadpage("../");
 						}

@@ -95,18 +95,6 @@ var gameObj = function (){
 							else{
 								Vue.set(this.current_card, i, {done: false, texture: back});
 								Vue.set(this.current_card, i_front, {done: false, texture: back});
-<<<<<<< HEAD
-								
-=======
-								
->>>>>>> 4c7b48525bf76c996156b823acb51919d46d1c81
-								
-<<<<<<< HEAD
-								
-=======
-								
->>>>>>> 4c7b48525bf76c996156b823acb51919d46d1c81
-
 								this.bad_clicks++;
 								break;
 							}
@@ -127,6 +115,8 @@ var gameObj = function (){
 	});
 	return {};
 }();
+
+
 
 
 
