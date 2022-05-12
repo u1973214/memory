@@ -1,3 +1,13 @@
+var optionsData = {
+	cards:2, dificulty:"hard"
+}
+
+var json = localStorage.getItem("config");
+if (json) {
+	optionsData = JSON.parse(json);
+}
+
+
 class GameScene extends Phaser.Scene {
     constructor (){
         super('GameScene');
@@ -47,6 +57,18 @@ class GameScene extends Phaser.Scene {
 			posX += 100;
 		}
 		
+		this.cards.children.iterate((card)=> {
+			card.setInteractive();
+			card.disableBody(true,true);
+		})
+
+		setTimeout(()=> {
+			this.cards.children.iterate((card)=> {
+				card.enableBody(false, 0, 0, true, true);
+			})
+		})
+
+
 		let i = 0;
 		this.cards.children.iterate((card)=>{
 			card.card_id = arraycards[i];
@@ -69,10 +91,8 @@ class GameScene extends Phaser.Scene {
 						//Mostrem totes les cartes durant 1 segon
 						
 						setTimeout(function(){
-							for (var z=0; z<=this.numCartes*2; z++){
-								this.firstClick.enableBody(false, 0, 0, true, true);
-								card.enableBody(false, 0, 0, true, true);
-							}
+							this.firstClick.enableBody(false, 0, 0, true, true);
+							card.enableBody(false, 0, 0, true, true);
 						},1000);	
 											
 						
