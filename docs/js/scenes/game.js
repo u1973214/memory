@@ -15,8 +15,9 @@ class GameScene extends Phaser.Scene {
 		this.firstClick = null;
 		this.score = 100;
 		this.correct = 0;
-		this.numCartes = nCartes.numCartes();
-		this.dificultat = dificultat.dificultat()
+		this.temps = 1300;
+		this.dificultat = 20;
+		this.arraycards = [];
     }
 
     preload (){	
@@ -39,8 +40,8 @@ class GameScene extends Phaser.Scene {
 		}
 
 		this.limitCartes = this.numCartes;
-		var arraycards = ['cb', 'co', 'sb', 'so', 'tb', 'to', 'cb', 'co', 'sb', 'so', 'tb', 'to'];
-		console.log(llistatCartes);
+		this.arraycards = ['cb', 'co', 'sb', 'so', 'tb', 'to', 'cb', 'co', 'sb', 'so', 'tb', 'to'];
+		
 		this.cameras.main.setBackgroundColor(0xBFFCFF);
 
 		var posX = 250
