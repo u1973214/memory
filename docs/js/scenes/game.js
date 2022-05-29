@@ -51,26 +51,28 @@ class GameScene extends Phaser.Scene {
         this.cameras.main.setBackgroundColor(0xBFFCFF);
         
 		var posx = 200;
+        var posx2 = 200;
 		for (let j = 0; j < this.arraycards.length; j++) {
 			if (j < 4) {
 				this.add.image(posx, 300, this.arraycards[j]);
 			}
 			else {
-				posx = 200;
-				this.add.image(posx, 450, this.arraycards[j]);
+				this.add.image(posx2, 450, this.arraycards[j]);
+                posx2+=100;
 			}
 			posx += 100;
 		}
         this.cards = this.physics.add.staticGroup();
         
 		var posx = 200;
+        var posx2 = 200;
 		for (let j = 0; j < this.arraycards.length; j++) {
 			if (j < 4) {
 				this.cards.create(posx, 300, 'back');
 			}
 			else {
-				posx = 200;
-				this.cards.create(posx, 450, 'back');
+				this.cards.create(posx2, 450, 'back');
+                posx2+=100;
 			}
 			posx += 100;
 		}
