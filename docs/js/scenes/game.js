@@ -75,6 +75,17 @@ class GameScene extends Phaser.Scene {
 			posx += 100;
 		}
 
+        this.cards.children.iterate((card)=>{
+			card.setInteractive();
+			card.disableBody(true,true);
+
+		})
+		//Es tornen a tapar
+		setTimeout(() =>{
+			this.cards.children.iterate((card)=>{
+				card.enableBody(false, 0, 0, true, true);
+			})
+		},this.temps);
        
  
         let i = 0;
