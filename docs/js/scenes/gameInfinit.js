@@ -29,21 +29,11 @@ class GameScene extends Phaser.Scene {
    
     create (){
 
-		//Segons la dificultat, varien el temps i el nivell de dificultat
-		if (options_data.dificulty == 'easy') {
-			this.temps = 2000;
-		}
-		else if (options_data.dificulty == 'normal') {
-			this.temps = 1300;
-		}
-		else {
-			this.temps = 700;
-		}
-		
+		//Es creen el vector de cartes que hi haura al tauler segons l'escollit a les opcions i es duplica per a tenir repetida cada carta
         this.arraycards = ['cb','co','sb','so','tb','to'];
         this.cards = options_data.cards;
         this.arraycards = this.arraycards.slice(0, this.cards);
-        this.arraycards = this.arraycards.concat(this.arraycards); // Es dupliquen
+        this.arraycards = this.arraycards.concat(this.arraycards); 
         this.arraycards.sort(function(){return Math.random() - 0.5});
 		
  
@@ -78,8 +68,13 @@ class GameScene extends Phaser.Scene {
 
         this.cards.children.iterate((card)=>{
 			card.setInteractive();
+            card.disableBody(true,true);
 		})
-       
+        setTimeout(() =>{
+            this.cards.children.iterate((card)=>{
+                card.enableBody(false, 0, 0, true, true);
+            })
+        },this.temps);
  
         let i = 0;
         this.cards.children.iterate((card)=>{
